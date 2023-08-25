@@ -1,13 +1,13 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import CreatePage from "../../pages/CreatePage/CreatePage";
 import ListPage from "../../pages/ListPage/ListPage";
-import Navigation from "../Navigation/Navigation";
+import Header from "../Header/Header";
 import "./App.css";
 
 const App = (): React.ReactElement => {
   return (
     <div className="container">
-      <Navigation />
+      <Header />
       <main className="main-container">
         <header>
           <h1>ROBOTS</h1>

@@ -6,10 +6,14 @@ const Navigation = () => {
     <nav>
       <ul className="nav">
         <li>
-          <NavLink to="/home">Home</NavLink>
+          <NavLink to="/home" className="nav__link">
+            Home
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/create">Create</NavLink>
+          <NavLink to="/create" className="nav__link">
+            Create
+          </NavLink>
         </li>
       </ul>
     </nav>
