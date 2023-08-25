@@ -2,7 +2,7 @@ const ListPage = () => {
   return (
     <section>
       <header>
-        <h1>List Page</h1>
+        <h2>List Page</h2>
       </header>
     </section>
   );

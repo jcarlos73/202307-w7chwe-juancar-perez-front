@@ -9,6 +9,9 @@ const App = (): React.ReactElement => {
     <div className="container">
       <Navigation />
       <main className="main-container">
+        <header>
+          <h1>ROBOTS</h1>
+        </header>
         <Routes>
           <Route path="/home" element={<ListPage />} />
           <Route path="/create" element={<CreatePage />} />

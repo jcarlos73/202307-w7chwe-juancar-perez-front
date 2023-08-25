@@ -2,7 +2,7 @@ const CreatePage = () => {
   return (
     <section>
       <header>
-        <h1>Create a Robot</h1>
+        <h2>Create a Robot</h2>
       </header>
     </section>
   );
