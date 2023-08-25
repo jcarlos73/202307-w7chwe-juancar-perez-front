@@ -3,3 +3,13 @@
   gap: 20px;
   padding: 20px;
 }
+
+.nav__link {
+  font-weight: bold;
+  font-size: 18px;
+  color: black;
+}
+
+.nav__link.active {
+  border-bottom: 3px solid purple;
+}
