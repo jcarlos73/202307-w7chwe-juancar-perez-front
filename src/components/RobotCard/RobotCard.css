@@ -1,0 +1,41 @@
+.card {
+  max-width: 400px;
+  overflow: hidden;
+  background-image: var(--gradient-primary);
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  box-shadow: 0.5rem 0.5rem var(--grey-color);
+}
+
+.card__img {
+  object-fit: cover;
+  height: 200px;
+  align-self: center;
+}
+
+.card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 20px 20px 20px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.bar {
+  border: 2px solid black;
+  height: 20px;
+  background-color: white;
+}
+
+.card__info > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bar__inner {
+  background-color: black;
+  height: 100%;
+}
