@@ -1,4 +1,5 @@
 .card {
+  width: 100%;
   max-width: 400px;
   overflow: hidden;
   background-image: var(--gradient-primary);
@@ -6,6 +7,7 @@
   flex-direction: column;
   border: 2px solid black;
   box-shadow: 0.5rem 0.5rem var(--grey-color);
+  margin-right: 4px;
 }
 
 .card__img {
@@ -17,16 +19,21 @@
 .card__info {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
   padding: 0 20px 20px 20px;
   font-size: 18px;
   font-weight: 500;
+}
+
+.card__name {
+  margin-bottom: 10px;
 }
 
 .bar {
   border: 2px solid black;
   height: 20px;
   background-color: white;
+  box-shadow: 0.25rem 0.25rem var(--grey-color);
 }
 
 .card__info > div {
@@ -36,6 +43,13 @@
 }
 
 .bar__inner {
-  background-color: black;
   height: 100%;
+}
+
+.endurance {
+  background-color: #ff9000;
+}
+
+.speed {
+  background-color: #228cdb;
 }
