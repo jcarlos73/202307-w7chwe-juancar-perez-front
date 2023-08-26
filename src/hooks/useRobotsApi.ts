@@ -7,9 +7,12 @@ const useRobotsApi = () => {
 
   const getRobotsApi = useCallback(async (): Promise<Robot[]> => {
     try {
-      const { data } = await axios.get<Robot[]>(`${apiBaseUrl}/robots`);
+      const { data } = await axios.get<{ robots: Robot[] }>(
+        `${apiBaseUrl}/robots`,
+      );
+      const { robots } = data;
 
-      return data;
+      return robots;
     } catch {
       throw new Error("Could not get the robots");
     }
