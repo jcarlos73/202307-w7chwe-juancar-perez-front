@@ -9,3 +9,12 @@ export const handlers = [
     },
   ),
 ];
+
+export const errorHandlers = [
+  rest.get(
+    `${import.meta.env.VITE_ROBOTS_API_URL}/robots`,
+    (_req, res, ctx) => {
+      return res(ctx.status(404, "Could not get the robots"));
+    },
+  ),
+];
