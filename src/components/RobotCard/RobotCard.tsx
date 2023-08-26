@@ -6,7 +6,7 @@ interface RobotCardProps {
 }
 
 const RobotCard = ({
-  robot: { name, imageUrl, resistance, speed },
+  robot: { name, imageUrl, endurance, speed },
 }: RobotCardProps) => {
   return (
     <article className="card">
@@ -17,17 +17,17 @@ const RobotCard = ({
           <span>Speed</span>
           <div className="card__speed bar">
             <div
-              className="bar__inner"
+              className="bar__inner speed"
               style={{ width: `${(speed / 10) * 100}%` }}
             ></div>
           </div>
         </div>
         <div>
-          <span>Resistance</span>
-          <div className="card__resistance bar">
+          <span>Endurance</span>
+          <div className="card__endurance bar">
             <div
-              className="bar__inner"
-              style={{ width: `${(resistance / 10) * 100}%` }}
+              className="bar__inner endurance"
+              style={{ width: `${(endurance / 10) * 100}%` }}
             ></div>
           </div>
         </div>
