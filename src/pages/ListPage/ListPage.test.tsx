@@ -1,4 +1,6 @@
 import { render, screen } from "@testing-library/react";
+import { Provider } from "react-redux";
+import { store } from "../../store";
 import ListPage from "./ListPage";
 
 describe("Given a ListPage component", () => {
@@ -6,7 +8,11 @@ describe("Given a ListPage component", () => {
     test("Then it should show 'List Page' inside a heading", () => {
       const headingText = "List Page";
 
-      render(<ListPage />);
+      render(
+        <Provider store={store}>
+          <ListPage />
+        </Provider>,
+      );
 
       const heading = screen.getByRole("heading", { name: headingText });
 
