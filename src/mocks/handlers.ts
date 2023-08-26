@@ -5,7 +5,7 @@ export const handlers = [
   rest.get(
     `${import.meta.env.VITE_ROBOTS_API_URL}/robots`,
     (_req, res, ctx) => {
-      return res(ctx.status(200), ctx.json(robotsMock));
+      return res(ctx.status(200), ctx.json({ robots: robotsMock }));
     },
   ),
 ];
