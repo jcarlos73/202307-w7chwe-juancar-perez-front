@@ -1,5 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import { store } from "../../store";
 import CreateRobotForm from "./CreateRobotForm";
 
 describe("Given a CreateRobotForm component", () => {
@@ -8,9 +11,17 @@ describe("Given a CreateRobotForm component", () => {
   const speedLabel = "Speed:";
   const enduranceLabel = "Endurance:";
 
+  const actionOnSubmit = vi.fn();
+
   describe("When it is rendered", () => {
     test("Then it should show inputs for labels 'Name:', 'Image url:', 'Speed:', 'Endurance:'", () => {
-      render(<CreateRobotForm />);
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <CreateRobotForm actionOnSubmit={actionOnSubmit} />
+          </Provider>
+        </BrowserRouter>,
+      );
 
       const nameInput = screen.getByLabelText(nameLabel);
       const imageUrlInput = screen.getByLabelText(imageUrlLabel);
@@ -31,7 +42,13 @@ describe("Given a CreateRobotForm component", () => {
       const speed = 2;
       const endurance = 4;
 
-      render(<CreateRobotForm />);
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <CreateRobotForm actionOnSubmit={actionOnSubmit} />
+          </Provider>
+        </BrowserRouter>,
+      );
 
       const nameInput = screen.getByLabelText(nameLabel);
       const imageUrlInput = screen.getByLabelText(imageUrlLabel);
@@ -53,7 +70,13 @@ describe("Given a CreateRobotForm component", () => {
   const buttonText = "Create robot";
   describe("When inputs are empty", () => {
     test("Then it should show a disabled button", () => {
-      render(<CreateRobotForm />);
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <CreateRobotForm actionOnSubmit={actionOnSubmit} />
+          </Provider>
+        </BrowserRouter>,
+      );
 
       const button = screen.getByRole("button", { name: buttonText });
 
@@ -68,7 +91,13 @@ describe("Given a CreateRobotForm component", () => {
       const speed = 2;
       const endurance = 4;
 
-      render(<CreateRobotForm />);
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <CreateRobotForm actionOnSubmit={actionOnSubmit} />
+          </Provider>
+        </BrowserRouter>,
+      );
 
       const nameInput = screen.getByLabelText(nameLabel);
       const imageUrlInput = screen.getByLabelText(imageUrlLabel);
