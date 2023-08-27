@@ -27,3 +27,11 @@ export const robotMock: Robot = {
   speed: 2,
   endurance: 6,
 };
+
+export const robotMockApi: Omit<Robot, "_id"> = {
+  name: "R2D2",
+  imageUrl:
+    "https://cdn.pixabay.com/photo/2022/06/04/20/20/r2-d2-7242774_960_720.png",
+  speed: 2,
+  endurance: 6,
+};
