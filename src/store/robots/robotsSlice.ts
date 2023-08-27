@@ -16,6 +16,12 @@ const robotsSlice = createSlice({
     ): RobotsState => ({
       robots: action.payload,
     }),
+    addRobot: (
+      currentRobotsState: RobotsState,
+      action: PayloadAction<Robot>,
+    ): RobotsState => ({
+      robots: [...currentRobotsState.robots, action.payload],
+    }),
   },
 });
 
