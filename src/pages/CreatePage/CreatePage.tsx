@@ -1,5 +1,4 @@
 import CreateRobotForm from "../../components/CreateRobotForm/CreateRobotForm";
-import "./CreatePage.css";
 
 const CreatePage = () => {
   return (

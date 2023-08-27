@@ -39,6 +39,11 @@
   font-family: inherit;
 }
 
+.form__button:focus {
+  outline: none;
+  border-color: rgb(255, 157, 0);
+}
+
 .form__button:hover {
   background-color: var(--primary-color);
   color: white;
