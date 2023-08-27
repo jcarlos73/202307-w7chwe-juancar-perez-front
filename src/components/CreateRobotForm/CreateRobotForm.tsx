@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import { Robot } from "../../types";
 import "./CreateRobotForm.css";
 
-const CreateRobotForm = () => {
+interface CreateRobotFormProps {
+  actionOnSubmit: (robot: Omit<Robot, "_id">) => void;
+}
+
+const CreateRobotForm = ({ actionOnSubmit }: CreateRobotFormProps) => {
   const [robot, setRobot] = useState<Omit<Robot, "_id">>({
     name: "",
     imageUrl: "",
@@ -26,8 +30,14 @@ const CreateRobotForm = () => {
     );
   }, [robot]);
 
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    actionOnSubmit(robot);
+  };
+
   return (
-    <form className="form">
+    <form onSubmit={handleSubmit} className="form">
       <div>
         <label htmlFor="name" className="form__label">
           Name:
