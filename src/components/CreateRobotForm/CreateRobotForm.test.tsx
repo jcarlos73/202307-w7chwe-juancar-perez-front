@@ -5,6 +5,11 @@ import { BrowserRouter } from "react-router-dom";
 import { store } from "../../store";
 import CreateRobotForm from "./CreateRobotForm";
 
+const name = "Bender";
+const imageUrl = "image.png";
+const speed = 2;
+const endurance = 4;
+
 describe("Given a CreateRobotForm component", () => {
   const nameLabel = "Name:";
   const imageUrlLabel = "Image url:";
@@ -12,6 +17,8 @@ describe("Given a CreateRobotForm component", () => {
   const enduranceLabel = "Endurance:";
 
   const actionOnSubmit = vi.fn();
+
+  const buttonText = "Create robot";
 
   describe("When it is rendered", () => {
     test("Then it should show inputs for labels 'Name:', 'Image url:', 'Speed:', 'Endurance:'", () => {
@@ -37,11 +44,6 @@ describe("Given a CreateRobotForm component", () => {
 
   describe("When user type in 'Bender', 'image.png', 2, 4", () => {
     test("Then the input should show the typed values", async () => {
-      const name = "Bender";
-      const imageUrl = "image.png";
-      const speed = 2;
-      const endurance = 4;
-
       render(
         <BrowserRouter>
           <Provider store={store}>
@@ -67,7 +69,6 @@ describe("Given a CreateRobotForm component", () => {
     });
   });
 
-  const buttonText = "Create robot";
   describe("When inputs are empty", () => {
     test("Then it should show a disabled button", () => {
       render(
@@ -86,11 +87,6 @@ describe("Given a CreateRobotForm component", () => {
 
   describe("When inputs are filled", () => {
     test("Then it should show an enabled button", async () => {
-      const name = "Bender";
-      const imageUrl = "image.png";
-      const speed = 2;
-      const endurance = 4;
-
       render(
         <BrowserRouter>
           <Provider store={store}>
@@ -112,6 +108,34 @@ describe("Given a CreateRobotForm component", () => {
       const button = screen.getByRole("button", { name: buttonText });
 
       expect(button).toBeEnabled();
+    });
+  });
+
+  describe("When a user fills in all the inputs and submits the form", () => {
+    test("Then the actionOnSubmit function should be called", async () => {
+      const user = userEvent.setup();
+
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <CreateRobotForm actionOnSubmit={actionOnSubmit} />
+          </Provider>
+        </BrowserRouter>,
+      );
+
+      const nameInput = screen.getByLabelText(nameLabel);
+      const imageUrlInput = screen.getByLabelText(imageUrlLabel);
+      const speedInput = screen.getByLabelText(speedLabel);
+      const enduranceInput = screen.getByLabelText(enduranceLabel);
+
+      await user.type(nameInput, name);
+      await user.type(imageUrlInput, imageUrl);
+      await user.type(speedInput, speed.toString());
+      await user.type(enduranceInput, endurance.toString());
+
+      const button = screen.getByRole("button", { name: buttonText });
+
+      await userEvent.click(button);
     });
   });
 });
