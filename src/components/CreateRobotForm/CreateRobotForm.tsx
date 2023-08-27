@@ -51,7 +51,7 @@ const CreateRobotForm = () => {
         />
       </div>
       <div>
-        <label htmlFor="speen" className="form__label">
+        <label htmlFor="speed" className="form__label">
           Speed:
         </label>
         <input
