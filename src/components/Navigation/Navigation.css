@@ -1,7 +1,6 @@
 .nav {
   display: flex;
   gap: 20px;
-  padding: 20px;
 }
 
 .nav__link {
@@ -11,5 +10,5 @@
 }
 
 .nav__link.active {
-  border-bottom: 3px solid purple;
+  border-bottom: 3px solid var(--primary-color);
 }
