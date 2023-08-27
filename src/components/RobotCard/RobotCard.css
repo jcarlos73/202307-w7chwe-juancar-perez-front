@@ -8,6 +8,7 @@
   border: 2px solid black;
   box-shadow: 0.5rem 0.5rem var(--grey-color);
   margin-right: 4px;
+  padding-top: 20px;
 }
 
 .card__img {
