@@ -10,7 +10,12 @@ const RobotCard = ({
 }: RobotCardProps) => {
   return (
     <article className="card">
-      <img src={imageUrl} alt={`Portrait of ${name}`} className="card__img" />
+      <img
+        src={imageUrl}
+        alt={`Portrait of ${name}`}
+        className="card__img"
+        height={200}
+      />
       <div className="card__info">
         <h2 className="card__name">{name}</h2>
         <div>
